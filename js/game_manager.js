@@ -64,6 +64,13 @@ GameManager.prototype.cheat = function () {
         this.score = this.score + value; // Keep track of score 
         value = value*2; //Increment number
       }
+      else  {
+        var garbage = array(4,8,32);
+        
+        var tile = new Tile(cell, garbage[Math.floor(Math.random() * myArray.length)];);
+
+        self.grid.insertTile(tile);
+      }
       
       // Start placing tiles after 3 empty cells (more believable)
       if (x == 0 && y == 3)  {
