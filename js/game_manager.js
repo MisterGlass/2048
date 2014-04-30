@@ -29,11 +29,14 @@ GameManager.prototype.keepPlaying = function () {
 
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.cheat = function () {
-  console.log('callback hacked!');
-  
   // Setup some vars
   value = 0;
   this.score = -2;
+  
+  direction = Math.round(Math.random()*3);
+  
+  var vector     = this.getVector(direction);
+  var traversals = this.buildTraversals(vector);
   
   // Traverse the grid in the right direction and remove tiles
   traversals.x.forEach(function (x) {
