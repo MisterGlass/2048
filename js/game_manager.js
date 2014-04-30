@@ -31,7 +31,9 @@ GameManager.prototype.keepPlaying = function () {
 GameManager.prototype.cheat = function () {
   var self = this;
   
-  self.won = true; // Prevent you won popup
+  // Prevent you won popup
+  self.won = true; 
+  self.keepPlaying = true;
 
   var cell, tile, value;
   
