@@ -70,9 +70,9 @@ KeyboardInputManager.prototype.listen = function () {
       self.restart.call(self, event);
     }
 
-    // R key restarts the game
+    // C key cheats
     if (!modifiers && event.which === 67) {
-      console.log('hacked!');
+      self.cheat.call(self, event);
     }
   });
 
@@ -135,6 +135,11 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+};
+
+KeyboardInputManager.prototype.cheat = function (event) {
+  event.preventDefault();
+  this.emit("cheat");
 };
 
 KeyboardInputManager.prototype.restart = function (event) {
