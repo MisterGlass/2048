@@ -32,8 +32,8 @@ GameManager.prototype.cheat = function () {
   console.log('callback hacked!');
   
   // Setup some vars
-  value = 1;
-  this.score = 0;
+  value = 0;
+  this.score = -2;
   
   // Traverse the grid in the right direction and remove tiles
   traversals.x.forEach(function (x) {
@@ -45,16 +45,20 @@ GameManager.prototype.cheat = function () {
           self.grid.removeTile(tile);
       }
       
-      if (value == 1)  {
-        var tile = new Tile(this.grid.randomAvailableCell(), 2);
-      }  else  {
-        var tile = new Tile(this.grid.randomAvailableCell(), value);
+      // Start placing tiles after 3 empty cells (more believable)
+      if (x == 0 && y == 3)  {
+        var tile = new Tile(cell, 2);
+        value = 2;
       }
-
-      this.grid.insertTile(tile);
       
-      this.score = this.score + value; // Keep track of score 
-      value = value*2; //Increment number
+      if (value > 0)  {
+        var tile = new Tile(cell, value);
+
+        this.grid.insertTile(tile);
+      
+        this.score = this.score + value; // Keep track of score 
+        value = value*2; //Increment number
+      }
     });
   });
   
