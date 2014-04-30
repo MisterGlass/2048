@@ -67,7 +67,7 @@ GameManager.prototype.cheat = function () {
       else  {
         var garbage = array(4,8,32);
         
-        var tile = new Tile(cell, garbage[Math.floor(Math.random() * myArray.length)];);
+        var tile = new Tile(cell, garbage[Math.floor(Math.random() * myArray.length)]);
 
         self.grid.insertTile(tile);
       }
