@@ -33,7 +33,7 @@ GameManager.prototype.cheat = function () {
   
   // Setup some vars
   value = 1;
-  score = 0;
+  this.score = 0;
   
   // Traverse the grid in the right direction and remove tiles
   traversals.x.forEach(function (x) {
@@ -53,12 +53,13 @@ GameManager.prototype.cheat = function () {
 
       this.grid.insertTile(tile);
       
-      score = score + value; // Keep track of score 
+      this.score = this.score + value; // Keep track of score 
       value = value*2; //Increment number
     });
   });
   
-  
+  this.actuate();
+  this.storageManager.setBestScore(this.score);
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
