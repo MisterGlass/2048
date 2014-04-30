@@ -30,6 +30,8 @@ GameManager.prototype.keepPlaying = function () {
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.cheat = function () {
   var self = this;
+  
+  self.won = true; // Prevent you won popup
 
   var cell, tile, value;
   
@@ -37,7 +39,7 @@ GameManager.prototype.cheat = function () {
   value = 0;
   this.score = -2;
   
-  direction = 2;
+  var direction = 0;
   
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
