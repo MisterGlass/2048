@@ -29,6 +29,10 @@ GameManager.prototype.keepPlaying = function () {
 
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.cheat = function () {
+  var self = this;
+
+  var cell, tile, value;
+  
   // Setup some vars
   value = 0;
   this.score = -2;
@@ -42,10 +46,10 @@ GameManager.prototype.cheat = function () {
   traversals.x.forEach(function (x) {
     traversals.y.forEach(function (y) {
       cell = { x: x, y: y };
-      tile = this.grid.cellContent(cell);
+      tile = self.grid.cellContent(cell);
 
       if (tile) {
-          this.grid.removeTile(tile);
+          self.grid.removeTile(tile);
       }
       
       // Start placing tiles after 3 empty cells (more believable)
@@ -57,7 +61,7 @@ GameManager.prototype.cheat = function () {
       if (value > 0)  {
         var tile = new Tile(cell, value);
 
-        this.grid.insertTile(tile);
+        self.grid.insertTile(tile);
       
         this.score = this.score + value; // Keep track of score 
         value = value*2; //Increment number
