@@ -38,7 +38,7 @@ GameManager.prototype.cheat = function () {
   var cell, tile, value;
   
   // Setup some vars
-  var garbage = Array(4,8,32);
+  var garbage = Array(0,0,0,4,8,32);
   value = 0;
   this.score = -2;
   
@@ -68,9 +68,11 @@ GameManager.prototype.cheat = function () {
       else  {
         value = garbage[Math.floor(Math.random() * garbage.length)];
         
-        var tile = new Tile(cell, value);
+        if(value!=0)  {
+          var tile = new Tile(cell, value);
 
-        self.grid.insertTile(tile);
+          self.grid.insertTile(tile);
+        }
       }
       
       // Start placing tiles after 3 empty cells (more believable)
