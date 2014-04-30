@@ -66,7 +66,7 @@ GameManager.prototype.cheat = function () {
         value = value*2; //Increment number
       }
       else  {
-        value = garbage[Math.floor(Math.random() * myArray.length)];
+        value = garbage[Math.floor(Math.random() * garbage.length)];
         
         var tile = new Tile(cell, value);
 
