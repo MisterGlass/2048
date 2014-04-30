@@ -42,10 +42,10 @@ GameManager.prototype.cheat = function () {
   traversals.x.forEach(function (x) {
     traversals.y.forEach(function (y) {
       cell = { x: x, y: y };
-      tile = self.grid.cellContent(cell);
+      tile = this.grid.cellContent(cell);
 
       if (tile) {
-          self.grid.removeTile(tile);
+          this.grid.removeTile(tile);
       }
       
       // Start placing tiles after 3 empty cells (more believable)
