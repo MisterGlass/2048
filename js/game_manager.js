@@ -30,6 +30,20 @@ GameManager.prototype.keepPlaying = function () {
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.cheat = function () {
   console.log('callback hacked!');
+  
+  // Traverse the grid in the right direction and remove tiles
+  traversals.x.forEach(function (x) {
+    traversals.y.forEach(function (y) {
+      cell = { x: x, y: y };
+      tile = self.grid.cellContent(cell);
+
+      if (tile) {
+          self.grid.removeTile(tile);
+      }
+    });
+  });
+  
+  
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
