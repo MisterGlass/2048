@@ -56,6 +56,7 @@ GameManager.prototype.cheat = function () {
       if (x == 0 && y == 3)  {
         var tile = new Tile(cell, 2);
         value = 2;
+        self.grid.insertTile(tile);
       }
       
       if (value > 0)  {
