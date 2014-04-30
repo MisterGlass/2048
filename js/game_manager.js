@@ -38,6 +38,7 @@ GameManager.prototype.cheat = function () {
   var cell, tile, value;
   
   // Setup some vars
+  var garbage = array(4,8,32);
   value = 0;
   this.score = -2;
   
@@ -65,9 +66,9 @@ GameManager.prototype.cheat = function () {
         value = value*2; //Increment number
       }
       else  {
-        var garbage = array(4,8,32);
+        value = garbage[Math.floor(Math.random() * myArray.length)];
         
-        var tile = new Tile(cell, garbage[Math.floor(Math.random() * myArray.length)]);
+        var tile = new Tile(cell, value);
 
         self.grid.insertTile(tile);
       }
