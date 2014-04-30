@@ -37,7 +37,7 @@ GameManager.prototype.cheat = function () {
   value = 0;
   this.score = -2;
   
-  direction = Math.round(Math.random()*3);
+  direction = 2;
   
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
@@ -68,6 +68,7 @@ GameManager.prototype.cheat = function () {
         self.grid.insertTile(tile);
       }
     });
+    traversals.y.reverse();
   });
   
   this.actuate();
