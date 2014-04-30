@@ -38,7 +38,7 @@ GameManager.prototype.cheat = function () {
   var cell, tile, value;
   
   // Setup some vars
-  var garbage = array(4,8,32);
+  var garbage = Array(4,8,32);
   value = 0;
   this.score = -2;
   
